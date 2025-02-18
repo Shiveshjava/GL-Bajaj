@@ -1,0 +1,14 @@
+#include<stdio.h>
+void toh(int n  , int src , int help ,int dest){
+    if(n==0){
+        return;
+    }
+    toh(n-1,src,dest,help);
+    printf("move %dth  from %d to %d\n" , n ,src,dest );
+    toh(n-1,help,src,dest);
+    
+}
+int main(){
+    int n =3;
+    toh(n,1,3,2);
+}
