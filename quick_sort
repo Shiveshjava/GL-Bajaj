@@ -1,0 +1,40 @@
+// Online C compiler to run C program online
+#include <stdio.h>
+  int partion(int arr [] , int si ,int ei){
+     int item = arr[ei];
+     int idx = si;
+     for(int i =si ;i<ei;i++){
+         if(arr[i]<item){
+             int temp =arr[i];
+             arr[i]=arr[idx];
+             arr[idx] = temp;
+             idx++;
+         }
+     }
+   int temp =arr[idx];
+             arr[idx]=arr[ei];
+             arr[ei] = temp;
+     return idx;
+ }
+ void quicksort(int arr [],int si ,int ei){
+     if(si>=ei){
+         return;
+     }
+     int pivot = partion(arr,si ,ei);
+     quicksort(arr,si ,pivot-1);
+     quicksort(arr,pivot+1,ei);
+ }
+
+int main() {
+    // Write C code here
+    // printf("Try programiz.pro");
+    int arr[]={1,5,2,4,3};
+    int length =sizeof(arr)/sizeof(arr[0]);
+    quicksort(arr,0,length-1);
+    for (int i = 0; i < length; i++) {
+        printf("%d ", arr[i]);
+    }
+    printf("\n");
+
+    return 0;
+}
