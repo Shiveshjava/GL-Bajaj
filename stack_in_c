@@ -1,0 +1,44 @@
+#include <stdio.h>
+#define Maxsize 5
+int stack[Maxsize];
+int top=-1;
+void push(int data){
+    if(top==Maxsize-1){
+        printf("stack overflow");
+    }
+    else{
+        top= top+1;
+        stack[top]=data;
+        
+        
+    }
+    
+}
+int pop(){
+    int d;
+    if(top==-1){
+        printf("stack empty");
+        int d=-1;
+    }
+    else{
+        int d =stack[top];
+        top--;
+    }
+    return d;
+} 
+void display(){
+    for(int i= top;i>=0;i--){
+        printf("%d\n",stack[i]);
+    }
+}
+
+
+int main() {
+    push(1);
+     push(2);
+      push(3);
+      display();
+     int  data =pop();
+     display();
+    return 0;
+}
